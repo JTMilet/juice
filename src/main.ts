@@ -1,19 +1,19 @@
 /*
  * @LastEditors: 杜康
- * @LastEditTime: 2022-07-21 16:27:12
+ * @LastEditTime: 2022-07-21 20:00:22
  */
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import ArcoVue from '@arco-design/web-vue'
+import Antd from 'ant-design-vue';
 import 'normalize.css/normalize.css'
-import '@arco-design/web-vue/dist/arco.css'
 import Router from './router'
 import App from './App.vue'
 import './styles/main.css'
+import 'ant-design-vue/dist/antd.css';
 
 const pinia = createPinia()
 createApp(App)
   .use(pinia)
   .use(Router)
-  .use(ArcoVue)
+  .use(Antd)
   .mount('#app')
