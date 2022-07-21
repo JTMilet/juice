@@ -1,11 +1,15 @@
 /*
  * @LastEditors: 杜康
- * @LastEditTime: 2022-07-21 08:58:39
+ * @LastEditTime: 2022-07-21 09:32:50
  */
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import 'normalize.css/normalize.css';
 import './main.css'
 // import './style.css'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+const pinia = createPinia()
+createApp(App)
+  .use(pinia)
+  .mount('#app')
