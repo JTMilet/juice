@@ -5,5 +5,7 @@
 </script>
 
 <template>
-  <router-view />
+  <section class="w-screen h-screen">
+    <router-view />
+  </section>
 </template>

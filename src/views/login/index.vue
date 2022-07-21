@@ -1,11 +1,9 @@
 <!--
  * @LastEditors: 杜康
- * @LastEditTime: 2022-07-21 15:21:19
+ * @LastEditTime: 2022-07-21 16:27:38
 -->
 <script lang="ts" setup>
 </script>
 
 <template>
-  <div class="w-screen h-screen bg-red-50">
-  </div>
 </template>
