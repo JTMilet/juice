@@ -1,9 +1,10 @@
 /*
  * @LastEditors: 杜康
- * @LastEditTime: 2022-07-21 19:15:01
+ * @LastEditTime: 2022-08-12 16:42:09
  */
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+// import cesium from 'vite-plugin-cesium'
 import path from 'path'
 const resolve = (dir: string) => path.join(__dirname, dir)
 
@@ -15,6 +16,7 @@ export default defineConfig({
       '@': resolve('./src/')
     }
   },
+  envDir: './env',
   server: {
     proxy: {
       '/juice-end': {
