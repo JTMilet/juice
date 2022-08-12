@@ -1,15 +1,18 @@
 <!--
  * @LastEditors: 杜康
- * @LastEditTime: 2022-08-12 16:43:01
+ * @LastEditTime: 2022-08-12 17:24:55
 -->
 <script lang="ts" setup>
 import { onMounted } from 'vue'
-// const mounted = onMounted(() =>{
-//   var viewer = new Cesium.Viewer("cesium-container", {
-//     animation: false, // 是否开启动画
-//     timeline: false, // 是否显示时间轴
-//   });
-// })
+const Cesium = window.Cesium
+
+onMounted(() => {
+  Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiMjEyMGE5MS00YmQ0LTRjNmItOGQyOC05NjNmMGNiNjM2YzUiLCJpZCI6MTA0MTQ4LCJpYXQiOjE2NjAyOTI3MDZ9.JyHLwHxvHB63hr3wcv3oaYIWIZam7eMFXxyT13BSefo';
+  var viewer = new Cesium.Viewer("cesium-container", {
+    animation: true, // 是否开启动画
+    timeline: false, // 是否显示时间轴
+  });
+});
 </script>
 
 <template>
@@ -19,7 +22,7 @@ import { onMounted } from 'vue'
     <!-- 地图容器 -->
     <section class="w-full flex-1 relative">
       <!-- 容器 -->
-      <div id="cesium-container" class="absolute w-full h-full bg-green-500">123</div>
+      <div id="cesium-container" class="absolute w-full h-full bg-green-500"></div>
     </section>
   </section>
 </template>
