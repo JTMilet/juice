@@ -1,6 +1,6 @@
 <!--
  * @LastEditors: 杜康
- * @LastEditTime: 2022-08-12 17:24:55
+ * @LastEditTime: 2022-08-12 17:35:23
 -->
 <script lang="ts" setup>
 import { onMounted } from 'vue'
@@ -22,7 +22,7 @@ onMounted(() => {
     <!-- 地图容器 -->
     <section class="w-full flex-1 relative">
       <!-- 容器 -->
-      <div id="cesium-container" class="absolute w-full h-full bg-green-500"></div>
+      <div id="cesium-container" class="absolute w-full h-full bg-gray-50"></div>
     </section>
   </section>
 </template>
