@@ -1,43 +1,45 @@
 <!--
  * @LastEditors: 杜康
- * @LastEditTime: 2022-07-21 20:02:54
+ * @LastEditTime: 2022-08-12 14:46:38
 -->
 <script lang="ts" setup>
-import { message } from 'ant-design-vue'
-import { ref, reactive, onMounted } from 'vue'
-import axios from 'axios'
+import { message } from "ant-design-vue";
+import { ref, reactive, onMounted } from "vue";
+import { useRouter } from "vue-router";
+import axios from "axios";
+const router = useRouter();
 const form = reactive({
-  account: '',
-  password: ''
-})
-const welcomeWords = ref('')
+  account: "",
+  password: "",
+});
+const welcomeWords = ref("");
 const mounted = onMounted(() => {
-  axios({
-    method: 'get',
-    url: '/juice-end/cats',
-  })
-    .then((res: any) => {
-      welcomeWords.value = res.data
-    })
-})
+  // axios({
+  //   method: 'get',
+  //   url: '/juice-end/cats',
+  // })
+  //   .then((res: any) => {
+  //     welcomeWords.value = res.data
+  //   })
+});
 
 const login = (e: any) => {
-  e.stopPropagation()
-  axios({
-    method: 'post',
-    url: '/juice-end/login',
-  })
-    .then((res: any) => {
-      if (res.data.code === 200) {
-        if (res.data.data) {
-        } else {
-          message.error(res.data.message)
-        }
-      }
-      // console.log('🚀 ~ .then ~ res', res)
-      // welcomeWords.value = res.data
-    })
-}
+  e.stopPropagation();
+  router.push("/");
+  // axios({
+  //   method: "post",
+  //   url: "/juice-end/login",
+  // }).then((res: any) => {
+  //   if (res.data.code === 200) {
+  //     if (res.data.data) {
+  //     } else {
+  //       message.error(res.data.message);
+  //     }
+  //   }
+  //   // console.log('🚀 ~ .then ~ res', res)
+  //   // welcomeWords.value = res.data
+  // });
+};
 </script>
 
 <template>
@@ -46,15 +48,31 @@ const login = (e: any) => {
       <a-avatar :size="64">Juice</a-avatar>
       <div>{{ welcomeWords }}</div>
       <a-from class="w-full">
-        <a-form-item field="account" label="账户">
-          <a-input v-model="form.account" placeholder="请输入账户" />
+        <a-form-item
+          field="account"
+          label="账户"
+        >
+          <a-input
+            v-model="form.account"
+            placeholder="请输入账户"
+          />
         </a-form-item>
-        <a-form-item field="post" label="密码">
-          <a-input v-model="form.password" placeholder="请输入账户密码" type="password" />
+        <a-form-item
+          field="post"
+          label="密码"
+        >
+          <a-input
+            v-model="form.password"
+            placeholder="请输入账户密码"
+            type="password"
+          />
         </a-form-item>
       </a-from>
       <div class="flex-none flex justify-center items-center">
-        <a-button type="primary" @click="login">登录系统</a-button>
+        <a-button
+          type="primary"
+          @click="login"
+        >登录系统</a-button>
       </div>
     </div>
   </section>
