@@ -1,6 +1,6 @@
 <!--
  * @LastEditors: 杜康
- * @LastEditTime: 2022-08-12 17:35:23
+ * @LastEditTime: 2022-08-12 18:44:11
 -->
 <script lang="ts" setup>
 import { onMounted } from 'vue'
@@ -8,7 +8,13 @@ const Cesium = window.Cesium
 
 onMounted(() => {
   Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiMjEyMGE5MS00YmQ0LTRjNmItOGQyOC05NjNmMGNiNjM2YzUiLCJpZCI6MTA0MTQ4LCJpYXQiOjE2NjAyOTI3MDZ9.JyHLwHxvHB63hr3wcv3oaYIWIZam7eMFXxyT13BSefo';
-  var viewer = new Cesium.Viewer("cesium-container", {
+  // 使用ArcGis
+  const esri = new Cesium.ArcGisMapServerImageryProvider({
+    url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer'
+  })
+  const viewer = new Cesium.Viewer("cesium-container", {
+    imageryProvider: esri,
+    baseLayerPicker: false,
     animation: true, // 是否开启动画
     timeline: false, // 是否显示时间轴
   });
